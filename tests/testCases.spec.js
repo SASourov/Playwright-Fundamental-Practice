@@ -7,9 +7,11 @@ test("test", async ({page}) => {
 
     await fp.openUrl("https://testautomationpractice.blogspot.com/")
 
-    await fp.completeAllField()
+    // await fp.completeAllField()
     
-    await fp.handleAlert()
+    // await fp.handleAlert()
 
-    await fp.copyPaste()
+    // await fp.copyPaste()
+
+    await fp.dragAndDrop()
 })

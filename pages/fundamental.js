@@ -18,6 +18,8 @@ exports.fundamental = class fundamental{
         this.promptAlert = page.locator("//button[@id='promptBtn']")
         this.copyFrom = page.locator("//input[@id='field1']")
         this.copyTo = page.locator("//input[@id='field2']")
+        this.dropItem = page.locator("//p[normalize-space()='Drag me to my target']")
+        this.dropTarget = page.locator("//div[@id='droppable']")
     }
 
     async openUrl(url){
@@ -81,6 +83,11 @@ exports.fundamental = class fundamental{
 
         await this.copyTo.click()
         await this.page.keyboard.press("Control+V")
+        await this.page.waitForTimeout(2000)
+    }
+
+    async dragAndDrop(){
+        await this.dropItem.dragTo(this.dropTarget)
         await this.page.waitForTimeout(2000)
     }
 }
